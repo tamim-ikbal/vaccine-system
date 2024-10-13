@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\VaccineDose;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,7 @@ class VaccinationFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'dose_number' => 1,
         ];
     }
 }

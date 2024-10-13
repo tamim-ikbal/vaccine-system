@@ -16,7 +16,6 @@ class Vaccination extends Model
         'scheduled_at',
         'vaccinated_at',
         'dose_number',
-        'status'
     ];
 
     public function registration(): BelongsTo

@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum VaccineType: string
+enum DiseaseType: string
 {
     case COVID19 = 'covid19';
 }

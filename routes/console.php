@@ -1,8 +1,15 @@
 <?php
 
-use Illuminate\Foundation\Inspiring;
-use Illuminate\Support\Facades\Artisan;
+use App\Enums\DiseaseType;
+use Carbon\WeekDay;
+use Illuminate\Support\Facades\Schedule;
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote')->hourly();
+
+//Schedule::command('vaccine:date-notification '.VaccineType::COVID19->value)
+//    ->days([
+//        WeekDay::Saturday->value,
+//        WeekDay::Sunday->value,
+//        WeekDay::Monday->value,
+//        WeekDay::Tuesday->value,
+//        WeekDay::Wednesday->value,
+//    ])->at('9 pm');

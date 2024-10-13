@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->foreignId('registration_id')->constrained('registrations');
             $table->dateTime('scheduled_at')->nullable();
             $table->dateTime('vaccinated_at')->nullable();
-            $table->unsignedInteger('dose_number')->default(1);
+            $table->unsignedInteger('dose_number');
             $table->timestamps();
         });
     }

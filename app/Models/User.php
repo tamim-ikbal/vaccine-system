@@ -23,8 +23,10 @@ class User extends Authenticatable
         'email',
         'password',
         'phone',
-        'nid',
-        'dob'
+        'identity_number', //Store Nid Or Birth Certificate
+        'dob',
+        'phone_verified_at', //temp
+        'email_verified_at', //temp
     ];
 
     public function registration(): HasOne
@@ -51,8 +53,9 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-            'dob' => 'datetime',
+            'phone_verified_at' => 'datetime',
+            'password'          => 'hashed',
+            'dob'               => 'datetime',
         ];
     }
 }

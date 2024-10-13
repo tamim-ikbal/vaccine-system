@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use App\Enums\VaccineType;
+use App\Enums\DiseaseType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class VaccineCenter extends Model
 {
@@ -13,15 +14,13 @@ class VaccineCenter extends Model
 
     protected $fillable = [
         'name',
-        'daily_limit',
         'district',
-        'vaccine_type'
     ];
 
-    protected function casts(): array
+    public function diseases(): BelongsToMany
     {
-        return [
-            'vaccine_type' => VaccineType::class
-        ];
+        return $this->belongsToMany(Disease::class, 'disease_vaccine_center', 'vaccine_center_id', 'disease_id')
+            ->withPivot(['daily_limit']);
     }
+
 }

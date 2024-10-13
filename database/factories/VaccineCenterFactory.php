@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Enums\VaccineType;
+use App\Enums\DiseaseType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,10 +18,8 @@ class VaccineCenterFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->streetName(),
-            'daily_limit' => $this->faker->randomNumber(2),
-            'district' => $this->faker->city(),
-            'vaccine_type' => VaccineType::COVID19
+            'name'         => $this->faker->streetName(),
+            'district'     => $this->faker->city(),
         ];
     }
 }

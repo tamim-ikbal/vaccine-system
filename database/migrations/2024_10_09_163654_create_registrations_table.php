@@ -14,8 +14,8 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('vaccine_center_id')->constrained('vaccine_centers');
-            $table->string('vaccine_type', 50);
-            $table->string('vaccine_name', 30);
+            $table->foreignId('disease_id')->constrained('diseases');
+            $table->foreignId('vaccine_id')->constrained('vaccines');
             $table->timestamps();
         });
     }

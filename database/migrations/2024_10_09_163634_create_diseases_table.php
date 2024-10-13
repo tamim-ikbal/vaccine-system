@@ -10,12 +10,11 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('vaccine_centers', function (Blueprint $table) {
+        Schema::create('diseases', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('daily_limit');
-            $table->string('district', 50);
-            $table->string('vaccine_type', 50);
+            $table->string('name', 50)->unique();
+            $table->string('display_name', 70);
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('vaccine_centers');
+        Schema::dropIfExists('diseases');
     }
 };
