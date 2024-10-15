@@ -37,8 +37,6 @@ trait VerificationTrait
 
     public function sendCode(string $name): void
     {
-        sleep(3);
-
         $this->validate();
 
         if (!$this->shouldVerify($name) || $this->isVerifying !== $name) {
@@ -60,8 +58,6 @@ trait VerificationTrait
 
     public function verify(string $name): void
     {
-        sleep(5);
-
         $this->validate([
             'verification_code' => 'required|string',
         ]);

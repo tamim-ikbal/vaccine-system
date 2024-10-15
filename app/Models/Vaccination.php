@@ -23,6 +23,7 @@ class Vaccination extends Model
         return $this->belongsTo(Registration::class);
     }
 
+
     protected function casts(): array
     {
         return [

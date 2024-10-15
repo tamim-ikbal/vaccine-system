@@ -19,7 +19,7 @@ class ChunkService
 
             $return = $callback($collection);
 
-            if ($return === false || $return === null) {
+            if ($return === false) {
                 break;
             }
 

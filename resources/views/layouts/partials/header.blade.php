@@ -17,12 +17,14 @@
             <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 dark:border-gray-700">
                 <li>
                     <x-nav-link
+                        wire:navigate
                         href="{{ route('home') }}"
                         :active="request()->routeIs('home')"
                     >{{ __('Home') }}</x-nav-link>
                 </li>
                 <li>
                     <x-nav-link
+                        wire:navigate
                         href="{{ route('registrations.create') }}"
                         :active="request()->routeIs('registrations.create')"
                     >{{ __('Register') }}</x-nav-link>

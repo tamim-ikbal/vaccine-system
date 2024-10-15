@@ -61,10 +61,8 @@ class VaccineDateSchedule extends Command
                 });
             });
 
-        $chunkService->chunkById($query, 10, function (Collection $vaccineCenters) {
+        $chunkService->chunkById($query, 100, function (Collection $vaccineCenters) {
             VaccineCentersJob::dispatch($vaccineCenters);
-
-            return false;
         }, 'vaccine_centers.id');
 
         return 0;

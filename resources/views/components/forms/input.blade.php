@@ -1,12 +1,13 @@
 @props([
     'type' => 'text',
-    'name',
+    'name' => '',
     'label' => '',
     'showError' => true,
     'value' => '',
-    'text' => ''
+    'text' => '',
+    'rootClass' => ''
 ])
-<div>
+<div {{ $rootClass ? 'class='.$rootClass : '' }}>
     @if($label)
         <x-forms.label :for="$name">
             {{ $label }}
@@ -24,7 +25,7 @@
             {{ $text }}
         </x-forms.text>
     @endif
-    @if($showError && isset($errors) && $errors->has($name))
-        <x-forms.error :message="$errors->first($name)"/>
+    @if($showError)
+        <x-forms.error :name="$name"/>
     @endif
 </div>
