@@ -8,8 +8,8 @@ use App\Models\Disease;
 use App\Models\User;
 use App\Services\VaccineCenterService;
 use App\Traits\Livewire\VerificationTrait;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Query\JoinClause;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
@@ -19,7 +19,7 @@ class Registration extends Component
     use VerificationTrait;
 
     public RegistrationForm $form;
-    
+
     #[Computed]
     public function vaccineCenters(): Collection
     {

@@ -10,6 +10,8 @@ Route::prefix('registrations')->name('registrations.')->group(function () {
     Route::post('/', [RegistrationController::class, 'store'])->name('store');
 });
 
+Route::view('/vue', 'admin.app');
+
 Route::get('test', function () {
     $startTime = microtime(true);
     $data = [

@@ -4,7 +4,8 @@ namespace App\Services;
 
 use App\Enums\DiseaseType;
 use App\Models\VaccineCenter;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 class VaccineCenterService
 {
@@ -13,7 +14,7 @@ class VaccineCenterService
         if (!$vaccineType) {
             $vaccineType = DiseaseType::COVID19;
         }
-        return VaccineCenter::query()
+        return DB::table('vaccine_centers')
             ->select('id', 'name', 'district')
             ->get();
     }
