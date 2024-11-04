@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Api\V1\Admin;
 
+use App\Actions\Disease\StoreDiseaseAction;
+use App\DTO\DiseaseDTO;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\V1\Admin\DiseaseRequest;
 use App\Http\Resources\Api\V1\Admin\DiseaseResource;
 use App\Models\Disease;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class DiseaseController extends Controller
@@ -26,17 +30,21 @@ class DiseaseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(DiseaseRequest $request, StoreDiseaseAction $action): JsonResponse
     {
-        //
+        $DTO = DiseaseDTO::create($request);
+
+        $disease = $action->handle($DTO);
+
+        return jsonResponseFormat(payload: $disease, message: __('Disease Added!'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Disease $disease)
     {
-        //
+        return jsonResponseFormat(payload: new DiseaseResource($disease));
     }
 
     /**

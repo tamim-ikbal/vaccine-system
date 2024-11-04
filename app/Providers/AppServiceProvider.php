@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //WeekDays
+
         RedirectResponse::macro('success', function (string $message) {
             return $this->with('toast', [
                 'type'    => 'success',
